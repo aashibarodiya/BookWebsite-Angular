@@ -1,0 +1,79 @@
+<app-loader [done]="author" message="please wait"></app-loader>
+<app-popup [(visible)]="showDeleteDialog" title="Delete Author?" [preventDefault]="true"
+    confirmText="Confirm Delete"
+    confirmClass="btn-danger" (done)="handleDelete($event)">
+    <p>Please review the author details before you regret deleting!!!</p>
+    <div class="row">
+        <div class="col col-6">
+            <img [src]="author!.photoUrl" class="small-image" />
+        </div>
+        <div class="col col-6">
+            Author Name: {{author!.name}}
+        </div>
+    </div>
+</app-popup>
+
+<app-popup [(visible)]="showUpdateDialog" title="Update Author?" [preventDefault]="true"
+    confirmText="Confirm Update" confirmClass="btn-success" (done)="handleUpdate($event)">
+    <p>Please review the book details before you update it!!!</p>
+    <div *ngIf="author">
+    <div class='row'>
+        <div class="col col-8">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" id="name" class="form-control" [(ngModel)]="author.name" 
+                required />
+
+            <label for="photoUrl" class="form-label">Photograph URL</label>
+            <input type="text" id="photourl" class="form-control" [(ngModel)]="author.photoUrl"
+                required >
+
+            <label for="biography" class="form-label">Biography</label>
+            <textarea type="text" id="biography" class="form-control" [(ngModel)]="author.biography"
+                required minlength="50" maxlength="2000"
+            ></textarea> 
+            <label for="birthDate" class="form-label">Birth Date</label>
+            <input type="text" id="birthDate" class="form-control" [(ngModel)]="author.birthDate"
+                required
+            >  
+            <label for="website" class="form-label">Website</label>
+            <input type="text" id="website" class="form-control" [(ngModel)]="author.social.webSite"
+                required
+            >
+            <label for="email" class="form-label">Email</label>
+            <input type="email" id="email" class="form-control" [(ngModel)]="author.social.email"
+                required
+            >
+
+            <label for="tags" class="form-label">Tags</label>
+            <input type="text" id="tags" class="form-control" [(ngModel)]="author.tagList"
+                required
+            >
+        </div>
+        <div class="col col-4">
+            <img [src]="author.photoUrl" class="author-profile-photo" />
+        </div>
+    </div>
+</div>
+
+</app-popup>   
+
+
+<div>
+    
+    <button class="btn btn-danger" (click)="showDeleteDialog=true"> <i class="fa fa-trash"></i> Delete</button>
+    &nbsp;
+    <button class="btn btn-primary" (click)="showUpdateDialog=true"> <i class="fa fa-pencil-square"></i> Edit</button>
+    <author-details [author]="author"></author-details>
+
+</div>
+
+<app-popup [(visible)]="showErrorPrompt" [title]="errorTitle">
+
+    {{errorMessage}}
+
+</app-popup>
+
+
+
+<app-not-found [show]="error" title="Author Search Failed" [message]='error'>
+</app-not-found>

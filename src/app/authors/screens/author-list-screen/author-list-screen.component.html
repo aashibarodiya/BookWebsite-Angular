@@ -1,0 +1,23 @@
+<h2>Author List</h2>
+<div *ngIf="authors && authors.length">
+
+
+  <div class="row" >
+
+      <div class="col-md-3" *ngFor="let author of authors">
+        <author-card 
+                    [routerLink]="['/author/details', author.id]"
+                    [author]="author"></author-card>
+      </div>
+
+  </div>
+</div>
+
+<app-loader [done]="authors" message="please wait"></app-loader>
+
+<div *ngIf="authors && authors.length ===0">
+  <h2>No Authors</h2>
+  <p>Please add a few...</p>
+</div>
+
+

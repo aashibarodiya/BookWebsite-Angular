@@ -1,0 +1,16 @@
+<div *ngIf="author" class="card" [style.width.px]="width" >
+    <img [src]="author.photoUrl" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{author.name}}</h5>
+
+      <p highlight="lightgreen" [bold]="true" >
+        {{author.biography!|trim:100|lowercase}}
+      </p>
+      
+      <p class="card-text">        
+        <tag-list [tags]="author.tagList"></tag-list>
+      </p>
+     
+    </div> 
+</div>
+

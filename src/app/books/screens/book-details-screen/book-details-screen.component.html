@@ -1,0 +1,111 @@
+<app-loader [done]="book!==null"  ></app-loader>
+<app-popup [(visible)]="showDeleteDialog" title="Delete Book?" [preventDefault]="true"
+    confirmText="Confirm Delete"
+    confirmClass="btn-danger" (done)="handleDelete($event)">
+    <p>Please review the book details before you regret deleting!!!</p>
+    <div class="row">
+        <div class="col col-6">
+            <img [src]="book!.coverUrl" class="small-image" />
+        </div>
+        <div class="col col-6">
+            Author Name: {{book!.title}}
+        </div>
+    </div>
+</app-popup>
+
+<app-popup [(visible)]="showUpdateDialog" title="Update Book?" [preventDefault]="true"
+    confirmText="Confirm Update"
+
+    confirmClass="btn-success" (done)="handleUpdate($event)">
+
+    <p>Please review the book details before you update it!!!</p>
+
+    <div *ngIf="book">
+    <div class='row'>
+        <div class="col col-8">
+            <label for="title" class="form-label">Title</label>
+            <input type="text" id="title" class="form-control" [(ngModel)]="book.title" 
+                required />
+            <label for="coverUrl" class="form-label">Cover URL</label>
+
+            <input type="text" id="coverurl" class="form-control" [(ngModel)]="book.coverUrl"
+                required >
+            <label for="description" class="form-label">Description</label>
+
+            <textarea type="text" id="photourl" class="form-control" [(ngModel)]="book.description"
+
+                required minlength="50" maxlength="2000"
+
+            ></textarea>     
+            <label for="tags" class="form-label">Tags</label>
+
+            <input type="text" id="rating" class="form-control" [(ngModel)]="book.tags"
+
+                required
+
+            >
+
+            
+
+
+      
+
+     <label for="rating" class="form-label">Rating</label>
+
+            <input type="text" id="rating" class="form-control" [(ngModel)]="book.rating"
+
+                required
+
+            >
+
+            <label for="price" class="form-label">Price</label>
+
+            <input type="text" id="price" class="form-control" [(ngModel)]="book.price"
+
+                required
+
+            >
+
+            <p></p>
+
+        
+
+
+
+        </div>
+
+        <div class="col col-4">
+
+            <img [src]="book.coverUrl" class="book-profile-photo" />
+
+        </div>
+
+    </div>
+
+</div>
+
+</app-popup>   
+
+<div>
+    
+    <button class="btn btn-danger" (click)="showDeleteDialog=true"> <i class="fa fa-trash"></i> Delete</button>
+  &nbsp;
+    <button class="btn btn-primary" (click)="showUpdateDialog=true"> <i class="fa fa-pencil-square"></i> Edit</button>
+    <book-details [book]="book"></book-details>
+</div>
+
+<app-not-found 
+        [show]="book===undefined" 
+        title="Book Not Found"
+        message="No book found with id {{id}}"
+        [showContactForm]="true"
+
+
+></app-not-found>
+
+<app-popup [(visible)]="showErrorPrompt" [title]="errorTitle">
+
+    {{errorMessage}}
+
+</app-popup>
+

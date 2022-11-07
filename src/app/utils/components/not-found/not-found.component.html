@@ -1,0 +1,23 @@
+<div *ngIf="show">
+    <h3 class="text-danger">{{title}}</h3>
+    <p class="text-danger">{{message}}</p>
+
+    <div *ngIf="showContactForm">
+
+        <p class="text-danger">If you think, it is a mistake, please contact us using below form</p>
+    
+    
+        <div class="row">
+            <div class="col col-md-5">
+                <label>Your Email Addresss</label>
+                <input class="form-control" type="text" placeholder="Your email address"/>
+                <label>Tell us why do you think, its a mistake?</label>
+                <textarea class="form-control"></textarea>
+                <button class="btn btn-primary bg-dark">
+                    Send Message
+                </button>
+            </div>
+        </div>
+       
+    </div>
+</div>

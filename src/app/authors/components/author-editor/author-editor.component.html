@@ -1,0 +1,69 @@
+<div *ngIf="author">
+    <h3>Add New Author</h3>
+
+    <div class='row'>
+        <div class="col col-8">
+            <label for="id" class="form-label">Id</label>
+            <input type="text" id="id" class="form-control"  [(ngModel)]='author.id' 
+                required
+            />
+
+            <label for="name" class="form-label">Name</label>
+            <input type="text" id="name" class="form-control"  [(ngModel)]="author.name" 
+                required
+            />
+
+            <label for="photoUrl" class="form-label">Photograph URL</label>
+            <input type="text" id="photourl" class="form-control" [(ngModel)]="author.photoUrl"
+                required
+            >
+
+            <div class="row">
+                <div class="col col-6">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="text" id="email" class="form-control" [(ngModel)]="author.social.email"
+                        email
+                    >
+                </div>
+                <div class="col col-6">
+                    <label for="web" class="form-label">Web</label>
+                    <input type="text" id="web" class="form-control" [(ngModel)]="author.social.webSite" 
+                        
+                    >
+                </div>
+                
+            </div>
+           
+            <label for="biography" class="form-label">Biography</label>
+            <textarea type="text" id="photourl" class="form-control" [(ngModel)]="author.biography" 
+                required minlength="50" maxlength="2000"
+            ></textarea>
+
+            
+
+            <label for="tags" class="form-label">Tags</label>
+            <input type="text" id="tags" class="form-control" [(ngModel)]="author.tags" 
+                required
+            >
+            <label for="tags" class="form-label">BirthDate</label>
+            <input type="text" id="birthDate" class="form-control" [(ngModel)]="author.birthDate" 
+                required
+            >
+            <input type="checkbox" [(ngModel)]="dead"> Author is no longer alive
+            <div [hidden]="!dead">
+                <label for="deathdate" class="form-label">Death Date</label>
+                <input type="text" id="deathDate" class="form-control" [(ngModel)]="author.deathDate"     
+                >
+            </div>
+            <p></p>
+            <button class="btn btn-primary bg-dark" (click)="handleSave()">Save Author</button>
+
+        </div>
+        <div class="col col-4">
+            <img [src]="author.photoUrl" class="author-profile-photo" />
+        </div>
+    </div>
+
+
+
+</div>

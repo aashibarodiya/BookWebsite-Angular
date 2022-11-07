@@ -1,0 +1,54 @@
+<div *ngIf="book">
+    <h3>Add New Book</h3>
+
+    <div class='row'>
+        <div class="col col-8">
+            <label for="authorId" class="form-label">AuthorId</label>
+            <input type="text" id="authorId"  class="form-control"  [(ngModel)]='book.authorId' 
+                required
+            />
+            <label for="id" class="form-label">Id</label>
+            <input type="text" id="id" class="form-control"  [(ngModel)]='book.id' 
+                required
+            />
+
+            <label for="title" class="form-label">Title</label>
+            <input type="text" id="title" class="form-control" [(ngModel)]="book.title" 
+                required
+            />
+
+            <label for="coverUrl" class="form-label">Photograph URL</label>
+            <input type="text" id="coverurl" class="form-control"  [(ngModel)]="book.coverUrl"
+                required
+            >
+           
+            <label for="description" class="form-label">Description</label>
+            <textarea type="text" id="photourl" class="form-control" [(ngModel)]="book.description"
+                required minlength="50" maxlength="2000"
+            ></textarea>
+            <label for="tags" class="form-label">Tags</label>
+            <input type="text" id="rating" class="form-control" [(ngModel)]="book.tags"
+                required
+            >
+            
+
+            <label for="rating" class="form-label">Rating</label>
+            <input type="text" id="rating" class="form-control" [(ngModel)]="book.rating"
+                required
+            >
+            <label for="price" class="form-label">Price</label>
+            <input type="text" id="price" class="form-control"  [(ngModel)]="book.price"
+                required
+            >
+            <p></p>
+            <button class="btn btn-primary bg-dark" (click)="handleSave()">Save book</button>
+
+        </div>
+        <div class="col col-4">
+            <img [src]="book.coverUrl" class="book-profile-photo" />
+        </div>
+    </div>
+
+
+
+</div>

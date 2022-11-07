@@ -1,0 +1,84 @@
+<div class="row">
+    <div class="col col-md-4">
+
+        <h3>User Reisteration</h3>
+
+        <form (ngSubmit)="handleReigsteration()" >
+
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">
+                    <i class="fa-solid fa-user"></i>
+                </span>
+                <input type="email" class="form-control" placeholder="User name" 
+                    [formControl]="name"
+                    />
+            </div>
+            <p *ngIf="name.invalid && name.dirty" class="text-danger text-sm">
+                required
+            </p>
+
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">@</span>
+                <input type="email" class="form-control" placeholder="Email Id" 
+                    [formControl]="email"
+                    />
+            </div>
+            <p *ngIf="email.invalid && email.dirty" class="text-danger text-sm">
+                <span *ngIf="email.errors!['required']" >Required</span>
+                <span *ngIf="email.errors!['email']">Invalid Email</span>
+            </p>
+
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon2">
+                    <i class="fa-solid fa-key"></i>
+                </span>
+                <input type="password" class="form-control" placeholder="password" aria-label="password"                     
+                    
+                    [formControl]="password"
+                    />
+            </div>
+            <p *ngIf="password.invalid && password.dirty" class="text-danger text-sm">
+                <span *ngIf="password.errors!['required']" >Required</span>
+                <span *ngIf="password.errors!['minlength']">
+                    Min {{password.errors!['minlength']!.requiredLength}} chars required. Current is {{password.errors!['minlength']!.actualLength}}
+                </span>
+                <span *ngIf="password.errors!['maxlength']">
+                    Max {{password.errors!['maxlength']!.requiredLength}} chars required. Current is {{password.errors!['maxlength']!.actualLength}}
+                </span>
+            </p>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon2">
+                    <i class="fa-solid fa-key"></i>
+                </span>
+                <input type="password" class="form-control" placeholder="re-type your password" aria-label="password"                     
+                    
+                    [formControl]="confirmPassword"
+                    />
+            </div>
+
+            <p *ngIf="confirmPassword.invalid && confirmPassword.dirty" class="text-danger text-sm">
+                <span *ngIf="confirmPassword.errors!['required']" >Required</span>
+                <span *ngIf="confirmPassword.errors!['minlength']">
+                    Min {{confirmPassword.errors!['minlength']!.requiredLength}} chars required. Current is {{confirmPassword.errors!['minlength']!.actualLength}}
+                </span>
+                <span *ngIf="confirmPassword.errors!['maxlength']">
+                    Max {{confirmPassword.errors!['maxlength']!.requiredLength}} chars required. Current is {{confirmPassword.errors!['maxlength']!.actualLength}}
+                </span>
+            </p>
+            
+            <button type="submit" class="btn btn-primary"
+                [disabled]="name.invalid || email.invalid || password.invalid || confirmPassword.invalid"
+            >
+                <i class="fa-solid fa-user-plus"></i> Reister
+            </button>
+
+             <span [class]="statusStyle"> {{status}}</span>
+        </form>
+        <div>
+            
+        </div>
+
+    </div>
+
+
+</div>

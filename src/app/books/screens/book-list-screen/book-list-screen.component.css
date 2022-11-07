@@ -1,0 +1,18 @@
+/* .book-item{
+    font-size:1.2em;
+    border-bottom: 1px solid gray;
+    padding-top:10px;
+    cursor:pointer;
+}
+
+.book-item:hover{
+    background:lightyellow;
+}
+
+img{
+    height:80px;
+} */
+.col{
+    cursor:pointer;
+    padding:5px;
+}

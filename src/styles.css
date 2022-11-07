@@ -1,1 +1,27 @@
 /* You can add global styles to this file, and also import other style files */
+
+.author-profile-photo{
+    width:250px;
+    border:2px solid black;
+    padding:2px;
+    box-shadow: -5px -5px 5px gray;
+}
+
+.ng-dirty.ng-invalid:not(form){
+
+    border-right:5px solid red;
+}
+
+.ng-valid:not(form){
+    border-right:5px solid green;
+}   
+
+i{
+    margin-right:5px;   
+}
+
+.small-image{
+    width:100px;
+    border-radius: 10px;
+    box-shadow: -5px -5px 5px gray;
+}

@@ -1,0 +1,9 @@
+
+<div class="row" *ngIf="author">
+    <h2>Recommended Authors</h2>
+   <div class="col col-6"><img [src]='author.photoUrl' alt='author.name'/></div>
+   <div class="col col-6">
+        <h3>{{author.name}}</h3>
+        <p>{{author.biography|trim:200}}</p>
+   </div>
+</div>

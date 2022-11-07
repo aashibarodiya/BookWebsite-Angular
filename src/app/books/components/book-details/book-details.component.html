@@ -1,0 +1,22 @@
+<div *ngIf="book">
+    <h3>{{book.title}}</h3>
+    <div class="row">
+        <div class="col-md-3">
+            <img [src]="book.coverUrl" [alt]="book.title"/>
+           
+          
+        </div>
+        <div class="col">
+            <info-line title="Author" [value]="book.authorId" ></info-line>
+            <info-line title="Price" [value]="book.price|currency:'INR'"></info-line>
+            <info-line title="Tags" value="{{book.tags}}"></info-line>
+            <info-line title="Description" value="{{book.description}}"></info-line>
+            <info-line title="Recommendation" [value]="book.rating|ratingAdvise"></info-line>
+    
+        
+</div>
+    
+        
+    </div>
+    
+</div>

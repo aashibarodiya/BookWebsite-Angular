@@ -1,0 +1,6 @@
+<author-editor [(author)]="author" (save)="onSave()"></author-editor>
+
+{{errors|json}}
+
+<app-popup [visible]="errorTitle!==''" [title]="errorTitle" [content]="errorMessage">    
+</app-popup>
